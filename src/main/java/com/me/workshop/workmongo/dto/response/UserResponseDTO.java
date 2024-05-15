@@ -4,15 +4,15 @@ import com.me.workshop.workmongo.domain.User;
 
 import java.io.Serializable;
 
-public class UserDTO implements Serializable {
+public class UserResponseDTO implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private String name;
     private String email;
 
-    public UserDTO() {}
+    public UserResponseDTO() {}
 
-    public UserDTO(User entity) {
+    public UserResponseDTO(User entity) {
         this.name = entity.getName();
         this.email = entity.getEmail();
     }
