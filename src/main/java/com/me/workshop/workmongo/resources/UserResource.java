@@ -1,22 +1,26 @@
 package com.me.workshop.workmongo.resources;
 
 import com.me.workshop.workmongo.domain.User;
+import com.me.workshop.workmongo.services.impl.UserServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/ws/users")
 public class UserResource {
+    private final UserServiceImpl service;
+
+    public UserResource(UserServiceImpl service) {
+        this.service = service;
+    }
+
     @GetMapping("/")
     public ResponseEntity<List<User>> findAll() {
-        var maria = new User("1", "Maria", "maria@gmail.com");
-        var alex = new User("2", "Alex", "alex@gmail.com");
-
-        return ResponseEntity.ok().body(Arrays.asList(maria, alex));
+        var users = service.findAll();
+        return ResponseEntity.ok().body(users);
     }
 }
