@@ -1,6 +1,6 @@
 package com.me.workshop.workmongo.resources;
 
-import com.me.workshop.workmongo.domain.User;
+import com.me.workshop.workmongo.dto.response.UserDTO;
 import com.me.workshop.workmongo.services.impl.UserServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +19,7 @@ public class UserResource {
     }
 
     @GetMapping("/")
-    public ResponseEntity<List<User>> findAll() {
+    public ResponseEntity<List<UserDTO>> findAll() {
         var users = service.findAll();
         return ResponseEntity.ok().body(users);
     }
