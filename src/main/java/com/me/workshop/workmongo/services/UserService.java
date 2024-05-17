@@ -10,4 +10,5 @@ public interface UserService {
     List<UserResponseDTO> findAll();
     Optional<UserResponseDTO> findById(String id);
     UserResponseDTO insert(UserRequestDTO dto);
+    void delete(String id);
 }

@@ -37,4 +37,11 @@ public class UserServiceImpl implements UserService {
         var user = repository.save(new User(dto.getName(), dto.getEmail()));
         return new UserResponseDTO(user);
     }
+
+    @Override
+    public void delete(String id) {
+        var user = repository.findById(id)
+                        .orElseThrow(() -> new ObjectNotFoundException("Id not found: " + id));
+        repository.deleteById(user.getId());
+    }
 }
