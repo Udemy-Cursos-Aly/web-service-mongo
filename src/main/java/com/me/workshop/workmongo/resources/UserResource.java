@@ -1,6 +1,7 @@
 package com.me.workshop.workmongo.resources;
 
 import com.me.workshop.workmongo.dto.request.UserRequestDTO;
+import com.me.workshop.workmongo.dto.response.PostsUserResponseDTO;
 import com.me.workshop.workmongo.dto.response.UserResponseDTO;
 import com.me.workshop.workmongo.services.impl.UserServiceImpl;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +31,12 @@ public class UserResource {
     public ResponseEntity<Optional<UserResponseDTO>> findById(@PathVariable String id) {
         var user = service.findById(id);
         return ResponseEntity.ok().body(user);
+    }
+
+    @GetMapping("/{id}/posts")
+    public ResponseEntity<List<PostsUserResponseDTO>> findAllPostsUser(@PathVariable String id) {
+        var posts = service.findPostsUser(id);
+        return ResponseEntity.ok().body(posts);
     }
 
     @PostMapping("/create")

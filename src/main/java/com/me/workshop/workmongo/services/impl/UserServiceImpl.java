@@ -2,6 +2,7 @@ package com.me.workshop.workmongo.services.impl;
 
 import com.me.workshop.workmongo.domain.User;
 import com.me.workshop.workmongo.dto.request.UserRequestDTO;
+import com.me.workshop.workmongo.dto.response.PostsUserResponseDTO;
 import com.me.workshop.workmongo.dto.response.UserResponseDTO;
 import com.me.workshop.workmongo.exceptions.BodyNotFoundException;
 import com.me.workshop.workmongo.exceptions.ObjectNotFoundException;
@@ -23,7 +24,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<UserResponseDTO> findAll() {
         return repository.findAll().stream()
-                .map(user -> new UserResponseDTO(user)).toList();
+                .map(UserResponseDTO::new).toList();
     }
 
     @Override
@@ -31,6 +32,15 @@ public class UserServiceImpl implements UserService {
         return repository.findById(id)
                 .map(user -> Optional.of(new UserResponseDTO(user)))
                 .orElseThrow(() -> new ObjectNotFoundException("User with id not found: " + id));
+    }
+
+    @Override
+    public List<PostsUserResponseDTO> findPostsUser(String id) {
+        var user = repository.findById(id)
+                .orElseThrow(() -> new ObjectNotFoundException("User with id not found: " + id));
+
+        return user.getPosts().stream()
+                .map(PostsUserResponseDTO::new).toList();
     }
 
     @Override
