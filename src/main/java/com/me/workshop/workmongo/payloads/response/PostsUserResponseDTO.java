@@ -1,4 +1,4 @@
-package com.me.workshop.workmongo.dto.response;
+package com.me.workshop.workmongo.payloads.response;
 
 import com.me.workshop.workmongo.domain.Post;
 

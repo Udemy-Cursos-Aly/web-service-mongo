@@ -1,6 +1,6 @@
 package com.me.workshop.workmongo.domain;
 
-import com.me.workshop.workmongo.dto.request.AuthorRequestDTO;
+import com.me.workshop.workmongo.payloads.request.AuthorRequestDTO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 

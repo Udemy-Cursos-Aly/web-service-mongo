@@ -1,0 +1,9 @@
+package com.me.workshop.workmongo.services;
+
+import com.me.workshop.workmongo.payloads.response.PostsUserResponseDTO;
+
+import java.util.Optional;
+
+public interface PostService {
+    Optional<PostsUserResponseDTO> findById(String id);
+}

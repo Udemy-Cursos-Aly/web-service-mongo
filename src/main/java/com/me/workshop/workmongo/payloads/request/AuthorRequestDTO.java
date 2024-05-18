@@ -1,4 +1,4 @@
-package com.me.workshop.workmongo.dto.request;
+package com.me.workshop.workmongo.payloads.request;
 
 public class AuthorRequestDTO {
     private String id;

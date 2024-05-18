@@ -1,8 +1,8 @@
 package com.me.workshop.workmongo.services;
 
-import com.me.workshop.workmongo.dto.request.UserRequestDTO;
-import com.me.workshop.workmongo.dto.response.PostsUserResponseDTO;
-import com.me.workshop.workmongo.dto.response.UserResponseDTO;
+import com.me.workshop.workmongo.payloads.request.UserRequestDTO;
+import com.me.workshop.workmongo.payloads.response.PostsUserResponseDTO;
+import com.me.workshop.workmongo.payloads.response.UserResponseDTO;
 
 import java.util.List;
 import java.util.Optional;

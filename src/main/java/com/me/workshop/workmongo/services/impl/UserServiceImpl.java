@@ -1,9 +1,9 @@
 package com.me.workshop.workmongo.services.impl;
 
 import com.me.workshop.workmongo.domain.User;
-import com.me.workshop.workmongo.dto.request.UserRequestDTO;
-import com.me.workshop.workmongo.dto.response.PostsUserResponseDTO;
-import com.me.workshop.workmongo.dto.response.UserResponseDTO;
+import com.me.workshop.workmongo.payloads.request.UserRequestDTO;
+import com.me.workshop.workmongo.payloads.response.PostsUserResponseDTO;
+import com.me.workshop.workmongo.payloads.response.UserResponseDTO;
 import com.me.workshop.workmongo.exceptions.BodyNotFoundException;
 import com.me.workshop.workmongo.exceptions.ObjectNotFoundException;
 import com.me.workshop.workmongo.repositories.UserRepository;
