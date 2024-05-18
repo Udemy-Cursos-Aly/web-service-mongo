@@ -4,9 +4,7 @@ import com.me.workshop.workmongo.domain.User;
 
 import java.io.Serializable;
 
-public class UserResponseDTO implements Serializable {
-    private static final long serialVersionUID = 1L;
-
+public class UserResponseDTO {
     private String name;
     private String email;
 
