@@ -3,6 +3,7 @@ package com.me.workshop.workmongo.config;
 import com.me.workshop.workmongo.domain.Post;
 import com.me.workshop.workmongo.domain.User;
 import com.me.workshop.workmongo.payloads.request.AuthorRequestDTO;
+import com.me.workshop.workmongo.payloads.request.CommentsRequestDTO;
 import com.me.workshop.workmongo.repositories.PostRepository;
 import com.me.workshop.workmongo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +41,9 @@ public class Instantiation implements CommandLineRunner {
         patrick.setPosts(Arrays.asList(postTwo));
 
         repository.saveAll(Arrays.asList(bob, patrick));
+
+        postOne.setComments(Arrays.asList(new CommentsRequestDTO("Welcome my friend", new Date(), new AuthorRequestDTO(bob.getId(), bob.getName()))));
+
+        postRepository.save(postOne);
     }
 }

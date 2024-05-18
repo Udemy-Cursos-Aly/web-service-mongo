@@ -1,10 +1,13 @@
 package com.me.workshop.workmongo.domain;
 
 import com.me.workshop.workmongo.payloads.request.AuthorRequestDTO;
+import com.me.workshop.workmongo.payloads.request.CommentsRequestDTO;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
 
 @Document
@@ -15,6 +18,7 @@ public class Post{
     private String title;
     private String body;
     private AuthorRequestDTO author;
+    private List<CommentsRequestDTO> comments = new ArrayList<>();
 
 
     public Post() {}
@@ -65,6 +69,14 @@ public class Post{
 
     public void setAuthor(AuthorRequestDTO author) {
         this.author = author;
+    }
+
+    public List<CommentsRequestDTO> getComments() {
+        return comments;
+    }
+
+    public void setComments(List<CommentsRequestDTO> comments) {
+        this.comments = comments;
     }
 
     @Override
