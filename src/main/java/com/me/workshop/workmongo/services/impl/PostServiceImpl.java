@@ -6,6 +6,7 @@ import com.me.workshop.workmongo.repositories.PostRepository;
 import com.me.workshop.workmongo.services.PostService;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,6 +28,13 @@ public class PostServiceImpl implements PostService {
     @Override
     public List<PostsUserResponseDTO> findByTitle(String text) {
         return repository.findByTitleContainingIgnoreCase(text).stream()
+                .map(PostsUserResponseDTO::new).toList();
+    }
+
+    @Override
+    public List<PostsUserResponseDTO> findFullSearch(String text, Date minDate, Date maxDate) {
+        maxDate = new Date(maxDate.getTime() + 24 * 60 * 60 * 1000);
+        return repository.fullSearch(text, minDate, maxDate).stream()
                 .map(PostsUserResponseDTO::new).toList();
     }
 }
