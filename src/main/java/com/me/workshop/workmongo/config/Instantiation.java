@@ -3,7 +3,6 @@ package com.me.workshop.workmongo.config;
 import com.me.workshop.workmongo.domain.Post;
 import com.me.workshop.workmongo.domain.User;
 import com.me.workshop.workmongo.dto.request.AuthorRequestDTO;
-import com.me.workshop.workmongo.dto.response.AuthorResponseDTO;
 import com.me.workshop.workmongo.repositories.PostRepository;
 import com.me.workshop.workmongo.repositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
