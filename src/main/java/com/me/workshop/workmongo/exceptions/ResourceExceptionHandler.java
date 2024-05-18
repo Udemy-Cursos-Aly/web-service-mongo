@@ -16,4 +16,11 @@ public class ResourceExceptionHandler {
                 .status(HttpStatus.NOT_FOUND)
                 .body(new StandardError(LocalDate.now(), HttpStatus.NOT_FOUND.value(), "Not found", exception.getMessage(), request.getRequestURI()));
     }
+
+    @ExceptionHandler(BodyNotFoundException.class)
+    public ResponseEntity<StandardError> bodyNotFound(BodyNotFoundException exception, HttpServletRequest request) {
+        return ResponseEntity
+                .status(HttpStatus.BAD_REQUEST)
+                .body(new StandardError(LocalDate.now(), HttpStatus.BAD_REQUEST.value(), "Body is not empty", exception.getMessage(), request.getRequestURI()));
+    }
 }
